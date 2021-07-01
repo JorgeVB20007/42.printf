@@ -17,6 +17,15 @@ void	printstr(char *str)
 }
 
 
+char *easyprinter(char *str)
+{
+	int a;
+
+	a = 0;
+	
+}
+
+
 int ft_printf(const char *masstr, ...)
 {
 	int a;
@@ -56,7 +65,7 @@ int ft_printf(const char *masstr, ...)
 			write(1, &value, 1);
 			a++;
 		}
-		else if (masstr[a + 1] == 'd')
+		else if (masstr[a + 1] == 'd' || masstr[a + 1] == 'i')
 		{
 			value = ft_itoa(va_arg(arguments, int));
 			printstr(value);
@@ -92,6 +101,7 @@ int args_in_str_chk(const char *masstr)
 
 int	main(void)
 {
-	printf("%e\n", 123456789.0);
-	ft_printf("Aquí una string: %s\nAquí un char: %c\nAquí un int: %d\nAquí un exponencial: %e\n", "Weeeeee", '@', 54321);
+	printf("%s\n", 'd');
+	printf("**%-5d**\n", 99);
+	ft_printf("Aquí una string: %s\nAquí un char: %c\nAquí un int: %i\nAquí un exponencial: %e\n", "Weeeeee", '@', 54321);
 }
