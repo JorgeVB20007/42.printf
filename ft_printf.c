@@ -3,34 +3,44 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
-void	printstr(char *str)
+void	brainwash(void)
 {
-	int a;
+	brain.ctype = '-';
+	brain.bzero = 0;
+	brain.bneg = 0;
+	brain.bperiod = 0;
+	brain.bplus = 0;
+	brain.basterisk = 0;
+	brain.iminchar = 0;
+}
 
-	a = 0;
-	while (str[a])
+void	printez(void)
+{
+	while (*brain.strloc && *brain.strloc != '%')
 	{
-		write(1, &str[a], 1);
-		a++;
+		write(1, brain.strloc, 1);
+		brain.strloc = brain;
+	}
+	if (!*brain.strloc)
+	{
+		brain.bemergencybreak = 1;
 	}
 }
 
-
-char *easyprinter(char *str)
-{
-	int a;
-
-	a = 0;
-	
-}
-
-
 int ft_printf(const char *masstr, ...)
 {
-	int a;
-	char *value;
 	va_list	arguments;
+
+	brain.strloc = masstr;
+	brain.bemergencybreak = 0;
+	va_start(arguments, masstr);
+	while (!bemergencybreak)
+	{
+		brainwash(void);
+		printez(void);
+		if (!brain.bemergencybreak)
+			paramdetector(void);
+	}
 
 /*	va_start(arguments, masstr);
 	a = 0;
@@ -42,38 +52,9 @@ int ft_printf(const char *masstr, ...)
 	}
 	va_end(arguments);*/
 
-	va_start(arguments, masstr);
+	
 	a = 0;
-	while (masstr[a])
-	{
-		if (masstr[a] != '%')
-			write(1, &masstr[a], 1);
-		else if (masstr[a + 1] == '%')
-		{
-			write(1, "%%", 1);
-			a++;
-		}
-		else if (masstr[a + 1] == 's')
-		{
-			value = va_arg(arguments, char *);
-			printstr(value);
-			a++;
-		}
-		else if (masstr[a + 1] == 'c')
-		{
-			value = va_arg(arguments, char *);
-			write(1, &value, 1);
-			a++;
-		}
-		else if (masstr[a + 1] == 'd' || masstr[a + 1] == 'i')
-		{
-			value = ft_itoa(va_arg(arguments, int));
-			printstr(value);
-			a++;
-		}
-			
-		a++;
-	}
+	
 	va_end(arguments);
 	return (0);
 }

@@ -37,8 +37,11 @@ char	*turn_to_exponential(float num)
 		c = '+';
 	else
 		c = '-';
+	if (neg)
+		newnum = newnum * -1;
 	printf("Yours: %fe%c%d\n", newnum, c, exp);
 	printf("Orign: %e\n", num);
+	printf("\a");
 	return(NULL);
 }
 
@@ -46,5 +49,5 @@ int main()
 {
 	char *a;
 
-	a = turn_to_exponential(0.00008546);
+	a = turn_to_exponential(5583455665.0068465);
 }
