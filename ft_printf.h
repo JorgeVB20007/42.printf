@@ -15,7 +15,9 @@ struct s_brain
 	int		bplus
 	int		bemergencybreak;
 	int		basterisk;
+	int		basterisktwo;
 	int		iminchar;
+	int		imaxchar;
 };
 
 int		ft_printf(const char *masstr, ...);

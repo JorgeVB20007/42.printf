@@ -18,6 +18,6 @@ void	ft_s(void)
 	if (brain.bneg)
 		spacer(dif);
 
-	if (brain.bneg)
+	if (!brain.bneg)
 		spacer(dif);
 }

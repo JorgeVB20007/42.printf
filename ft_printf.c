@@ -11,7 +11,11 @@ void	brainwash(void)
 	brain.bperiod = 0;
 	brain.bplus = 0;
 	brain.basterisk = 0;
+	brain.basterisktwo = 0;
 	brain.iminchar = 0;
+	brain.imincharzero = 0;
+	brain.imaxchar = 0;
+	brain.imaxcharzero = 0;
 }
 
 void	printez(void)

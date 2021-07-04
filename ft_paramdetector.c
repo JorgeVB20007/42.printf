@@ -9,7 +9,7 @@ void	paramdetector(void)
 
 	completed = 0;
 	brain.strloc = brain.strloc + 1;
-	while(!completed)
+	while (!completed)
 	{
 		if (ft_isalpha(*brain.strloc) || *brain.strloc == '%')
 		{
@@ -18,18 +18,34 @@ void	paramdetector(void)
 		}
 		else if (*brain.strloc == '+')
 			brain.bplus = 1;
-		else if (*brain.strloc == '-')
+		else if (*brain.strloc == '-' && brain.bperiod == 1)
 			brain.bneg = 1;
-		else if (*brain.strloc == '0')
+		else if (*brain.strloc == '0' && brain.bperiod == 0)
 			brain.bzero = 1;
 		else if (*brain.strloc == '.')
 			brain.bperiod = 1;
-		else if (*brain.strloc == '*')
+		else if (*brain.strloc == '*' && brain.bperiod == 0)
 			brain.basterisk = 1;
-		else if (*brain.strloc == '%')
+		else if (*brain.strloc == '*' && brain.bperiod == 1)
+			brain.basterisktwo = 1;
+		else if (ft_isdigit(*brain.strloc) && brain.bperiod == 1)
 		{
-			write(1, "%%", 1);
+			brain.imaxchar = brain.imaxchar * 10 + ((*brain.strloc) + 48);
+			if (brain.imaxchar == 0)
+				brain.imaxcharzero = 1;
+			else
+				brain.imaxcharzero = 0;
 		}
+		else if (ft_isdigit(*brain.strloc) && brain.bperiod == 0)
+		{
+			brain.iminchar = brain.iminchar * 10 + ((*brain.strloc) + 48);
+			if (brain.iminchar == 0)
+				brain.imincharzero = 1;
+			else
+				brain.imincharzero = 1;
+		}
+
+		brain.strloc = brain.strloc + 0;
 	}
 	if (brain.bneg && brain.bzero)
 		brain.bzero = 0;
@@ -51,5 +67,5 @@ void	redirecter(void)
 	else if (brain.ctype == 'x' || brain.ctype == 'X')
 		ft_x(void);
 	else if (brain.ctype == '%')
-		write(1, "%%", 1);
+		ft_percent(void);
 }
