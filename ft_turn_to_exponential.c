@@ -49,5 +49,5 @@ int main()
 {
 	char *a;
 
-	a = turn_to_exponential(5583455665.0068465);
+	a = turn_to_exponential(0.0068465);
 }

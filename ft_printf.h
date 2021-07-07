@@ -7,12 +7,16 @@
 
 struct s_brain
 {
-	char	*strloc;
+	char	*strin;
+	char	*strout;
+	int		loc;
 	char	ctype;
 	int		bzero;
 	int		bneg;
 	int		bperiod;
-	int		bplus
+	int		bplus;
+	int		bspace;
+	int		bhash;
 	int		bemergencybreak;
 	int		basterisk;
 	int		basterisktwo;

@@ -34,7 +34,7 @@ void	paramdetector(void)
 			if (brain.imaxchar == 0)
 				brain.imaxcharzero = 1;
 			else
-				brain.imaxcharzero = 0;
+				brain.imaxcharzero = 0;  
 		}
 		else if (ft_isdigit(*brain.strloc) && brain.bperiod == 0)
 		{
@@ -50,6 +50,22 @@ void	paramdetector(void)
 	if (brain.bneg && brain.bzero)
 		brain.bzero = 0;
 	redirecter(void);
+}
+
+void	subs_asterisk
+{
+	if (brain.basterisk)
+	{
+		brain.iminchar = va_arg(arguments, int);
+		if (!brain.iminchar)
+			brain.imincharzero = 1;
+	}
+	if (brain.basterisktwo)
+	{
+		brain.imaxchar = va_arg(arguments, int);
+		if (!brain.imaxchar)
+			brain.imaxcharzero = 1;
+	}
 }
 
 void	redirecter(void)
