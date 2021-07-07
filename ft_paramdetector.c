@@ -8,7 +8,7 @@ void	paramdetector(void)
 	int	completed;
 
 	completed = 0;
-	brain.strloc = brain.strloc + 1;
+	brain.str = brain.str + 1;
 	while (!completed)
 	{
 		if (ft_isalpha(*brain.strloc) || *brain.strloc == '%')
@@ -16,12 +16,12 @@ void	paramdetector(void)
 			completed = 1;
 			brain.ctype = *brain.strloc;
 		}
-		else if (*brain.strloc == '+')
-			brain.bplus = 1;
-		else if (*brain.strloc == '-' && brain.bperiod == 1)
+		else if (*brain.strloc == '-' && !brain.bperiod && !brain.basterisk && !brain.iminchar)
 			brain.bneg = 1;
 		else if (*brain.strloc == '0' && brain.bperiod == 0)
 			brain.bzero = 1;
+		else if (*brain.strloc == '+')
+			brain.bplus = 1;
 		else if (*brain.strloc == '.')
 			brain.bperiod = 1;
 		else if (*brain.strloc == '*' && brain.bperiod == 0)

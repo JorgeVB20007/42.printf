@@ -10,6 +10,8 @@ void	brainwash(void)
 	brain.bneg = 0;
 	brain.bperiod = 0;
 	brain.bplus = 0;
+	brain.bspace = 0;
+	brain.bhash = 0;
 	brain.basterisk = 0;
 	brain.basterisktwo = 0;
 	brain.iminchar = 0;

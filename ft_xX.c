@@ -23,6 +23,7 @@ void turn_to_hex(void)
 		}
 		else
 			tempchar = temp % 16;
-		hextorage[a] = temp % 16;
+		hextorage[a] = tempchar;
 	}
+	write(1, &hextorage, a);
 }
