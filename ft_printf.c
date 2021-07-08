@@ -22,22 +22,23 @@ void	brainwash(void)
 
 void	printez(void)
 {
-	while (*brain.strloc && *brain.strloc != '%')
+	while (*brain.strin && *brain.strin != '%')
 	{
-		write(1, brain.strloc, 1);
-		brain.strloc = brain;
+		write(1, brain.strin, 1);
+		brain.strin = brain;
 	}
-	if (!*brain.strloc)
+	if (!*brain.strin)
 	{
 		brain.bemergencybreak = 1;
 	}
 }
 
-int ft_printf(const char *masstr, ...)
+int	ft_printf(const char *masstr, ...)
 {
+	t_brain	brain;
 	va_list	arguments;
 
-	brain.strloc = masstr;
+	brain.strin = masstr;
 	brain.bemergencybreak = 0;
 	va_start(arguments, masstr);
 	while (!bemergencybreak)
@@ -88,7 +89,5 @@ int args_in_str_chk(const char *masstr)
 
 int	main(void)
 {
-	printf("%s\n", 'd');
-	printf("**%-5d**\n", 99);
 	ft_printf("Aquí una string: %s\nAquí un char: %c\nAquí un int: %i\nAquí un exponencial: %e\n", "Weeeeee", '@', 54321);
 }

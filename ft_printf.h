@@ -5,7 +5,7 @@
 # include <stddef.h>
 # include <unistd.h>
 
-struct s_brain
+typedef struct s_brain
 {
 	char	*strin;
 	char	*strout;
@@ -22,7 +22,7 @@ struct s_brain
 	int		basterisktwo;
 	int		iminchar;
 	int		imaxchar;
-};
+}	t_brain;
 
 int		ft_printf(const char *masstr, ...);
 char	*ft_itoa(int n);
