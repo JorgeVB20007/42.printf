@@ -3,21 +3,47 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void	stringwriter(void)
-{
-	while 
-}
-
 void	ft_s(void)
 {
-	int dif;
+	t_brain	brain;
+	int		dif;
+	char	*string;
+	va_list	arguments;
 
+	string = va_arg (arguments, char *);
+	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
+	{
+		dif = brain.iminchar;
+		while (dif-- - ft_strlen(string))
+			write(1, " ", 1);
+	}
+	if ((ft_strlen(string) > brain.imaxchar || brain.imaxcharzero) && !brain.bneg)
+	{
+		dif = brain.imaxchar;
+		while (ft_strlen(string) - dif++)
+			write(1, " ", 1);
+		write(1, &string, brain.imaxchar);
+	}
+	if ((ft_strlen(string) > brain.imaxchar || brain.imaxcharzero) && brain.bneg)
+	{
+		write(1, &string, brain.imaxchar);
+		dif = brain.imaxchar;
+		while (ft_strlen(string) - dif++)
+			write(1, " ", 1);
+	}
+	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
+	{
+		dif = brain.iminchar;
+		while (dif-- - ft_strlen(string))
+			write(1, " ", 1);
+	}
 	dif = 0;
-	if (brain.iminchar > ft_strlen(brain.strloc))
-		dif = brain.iminchar - ft_strlen(brain.strloc);
-	if (brain.bneg)
-		spacer(dif);
-
-	if (!brain.bneg)
-		spacer(dif);
+	if (ft_strlen(string) < brain.imaxchar && ft_strlen(string) > brain.iminchar)
+	{
+		while (string[dif])
+		{
+			write(1, &string[dif], 1);
+			dif++;
+		}
+	}
 }

@@ -5,6 +5,8 @@
 
 void	brainwash(void)
 {
+	t_brain	brain;
+
 	brain.ctype = '-';
 	brain.bzero = 0;
 	brain.bneg = 0;
@@ -22,12 +24,15 @@ void	brainwash(void)
 
 void	printez(void)
 {
-	while (*brain.strin && *brain.strin != '%')
+	t_brain	brain;
+
+	while (brain.strin[brain.loc] && brain.strin[brain.loc] != '%')
 	{
-		write(1, brain.strin, 1);
-		brain.strin = brain;
+		write(1, &brain.strin[brain.loc], 1);
+		brain.totalen++;
+		brain.loc++;
 	}
-	if (!*brain.strin)
+	if (!brain.strin[brain.loc])
 	{
 		brain.bemergencybreak = 1;
 	}
@@ -41,53 +46,20 @@ int	ft_printf(const char *masstr, ...)
 	brain.strin = masstr;
 	brain.bemergencybreak = 0;
 	va_start(arguments, masstr);
-	while (!bemergencybreak)
+	while (!brain.bemergencybreak)
 	{
-		brainwash(void);
-		printez(void);
+		brainwash();
+		printez();
 		if (!brain.bemergencybreak)
-			paramdetector(void);
+			paramdetector();
 	}
-
-/*	va_start(arguments, masstr);
-	a = 0;
-	while (a < 5)
-	{
-		value = va_arg(arguments,char *);
-		printf("%d: %s\n", a, value);
-		a++;
-	}
-	va_end(arguments);*/
-
-	
-	a = 0;
-	
 	va_end(arguments);
-	return (0);
+	return (brain.totalen);
 }
 
 
-int args_in_str_chk(const char *masstr)
+int main()
 {
-	int a;
-	int cntr;
-
-	a = 0;
-	cntr = 0;
-	while (masstr[a])
-	{
-		if (masstr[a] == '%')
-		{
-			cntr++;
-			if (masstr[a + 1] == '%')
-				a++;
-		}
-		a++;
-	}
-	return (0);
-}
-
-int	main(void)
-{
-	ft_printf("Aquí una string: %s\nAquí un char: %c\nAquí un int: %i\nAquí un exponencial: %e\n", "Weeeeee", '@', 54321);
+	int a = ft_printf("Hello");
+	printf("  %d", a);
 }
