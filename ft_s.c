@@ -10,6 +10,7 @@ void	ft_s(void)
 	char	*string;
 	va_list	arguments;
 
+	write(1, "It's a string!", 13);
 	string = va_arg (arguments, char *);
 	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
 	{

@@ -36,5 +36,6 @@ void	spacer(int a);
 int		ft_isdigit(char c);
 void	paramdetector(void);
 void	ft_s(void);
+char	*ft_strdup(const char *s1);
 
 #endif
