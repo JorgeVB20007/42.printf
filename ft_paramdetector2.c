@@ -10,12 +10,10 @@
  ***********************/
 
 
-void	typesorter(void)
+t_brain	typesorter(t_brain brain)
 {
-	t_brain	brain;
-
 	if (brain.ctype == 's')
-		ft_s();
+		ft_s(brain);
 /*	if (brain.ctype == 'c')
 		ft_c(void);
 	if (brain.ctype == 'd' || brain.ctype == 'i')
@@ -26,11 +24,11 @@ void	typesorter(void)
 		ft_x(void);
 	if (brain.ctype == '%')
 		ft_percent(void);*/
+		return (brain);
 }
 
-void	paramdetector(void)
+t_brain	paramdetector(t_brain brain)
 {
-	t_brain	brain;
 	int		completed;
 
 	completed = 0;
@@ -50,8 +48,12 @@ void	paramdetector(void)
 		else if (brain.strin[brain.loc] == '.')
 			brain.bperiod = 1;
 		else if (ft_isdigit(brain.strin[brain.loc]) && !brain.bperiod)
-			brain.iminchar = brain.iminchar * 10 + brain.strin[brain.loc] + 48;
+			brain.iminchar = brain.iminchar * 10 + (brain.strin[brain.loc] - 48);
 		else if (ft_isdigit(brain.strin[brain.loc]) && brain.bperiod)
-			brain.imaxchar = brain.imaxchar * 10 + brain.strin[brain.loc] + 48;
+			brain.imaxchar = brain.imaxchar * 10 + (brain.strin[brain.loc] - 48);
+		brain.loc++;
 	}
+	printbrain(brain);
+	brain = typesorter(brain);
+	return (brain);
 }

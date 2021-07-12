@@ -4,6 +4,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_brain
 {
@@ -24,6 +25,7 @@ typedef struct s_brain
 	int			imincharzero;
 	int			imaxcharzero;
 	int			totalen;
+	va_list		*args;
 }	t_brain;
 
 int		ft_printf(const char *masstr, ...);
@@ -34,8 +36,9 @@ int		ft_strlen(char *s);
 int		ft_intlen(int a);
 void	spacer(int a);
 int		ft_isdigit(char c);
-void	paramdetector(void);
-void	ft_s(void);
+t_brain	paramdetector(t_brain brain);
+t_brain	ft_s(t_brain brain);
 char	*ft_strdup(const char *s1);
+void	printbrain(t_brain brain);
 
 #endif
