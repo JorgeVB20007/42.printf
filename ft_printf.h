@@ -18,8 +18,6 @@ typedef struct s_brain
 	int			bspace;
 	int			bhash;
 	int			bemergencybreak;
-	int			basterisk;
-	int			basterisktwo;
 	int			iminchar;
 	int			imaxchar;
 	int			imincharzero;

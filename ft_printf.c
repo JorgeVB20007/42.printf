@@ -26,12 +26,6 @@ void	printbrain(t_brain brain)
 	write(1, "\nbhash: ", 8);
 	h = brain.bhash+48;
 	write(1, &h, 1);
-	write(1, "\nbasterisk: ", 12);
-	h = brain.basterisk+48;
-	write(1, &h, 1);
-	write(1, "\nbasterisktwo: ", 15);
-	h = brain.basterisktwo+48;
-	write(1, &h, 1);
 	write(1, "\niminchar: ", 11);
 	h = brain.iminchar;
 	printf("%d\n", h);
@@ -65,8 +59,6 @@ t_brain	brainwash(t_brain brain)
 	brain.bplus = 0;
 	brain.bspace = 0;
 	brain.bhash = 0;
-	brain.basterisk = 0;
-	brain.basterisktwo = 0;
 	brain.iminchar = 0;
 	brain.imincharzero = 0;
 	brain.imaxchar = 0;
@@ -114,6 +106,6 @@ int	ft_printf(const char *masstr, ...)
 
 int main()
 {
-	int a = ft_printf("Hello World %.30s Hello World", "Goodbye");
+	int a = ft_printf("Hello World %-30s Hello World", "Goodbye");
 	printf("\n\nft_printf returned: %d", a);
 }

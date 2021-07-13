@@ -39,7 +39,7 @@ t_brain	ft_s(t_brain brain)
 		while (ft_strlen(string) - dif++)
 			write(1, " ", 1);
 	}
-	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
+	if (ft_strlen(string) < brain.iminchar && brain.bneg)
 	{
 		dif = brain.iminchar;
 		while (dif-- - ft_strlen(string))

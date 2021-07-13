@@ -41,19 +41,23 @@ t_brain	paramdetector(t_brain brain)
 		}
 		else if (brain.strin[brain.loc] == '-')
 			brain.bneg = 1;
-		else if (brain.strin[brain.loc] == '0')
+		else if (brain.strin[brain.loc] == '0' && !brain.bperiod && !brain.iminchar)
 			brain.bzero = 1;
-		else if (brain.strin[brain.loc] == '*' && !brain.bperiod && !brain.iminchar)
-			brain.basterisk = 1;
 		else if (brain.strin[brain.loc] == '.')
 			brain.bperiod = 1;
+		else if (brain.strin[brain.loc] == '+')
+			brain.bplus = 1;
+		else if (brain.strin[brain.loc] == ' ')
+			brain.bspace = 1;
+		else if (brain.strin[brain.loc] == '#')
+			brain.bhash = 1;
 		else if (ft_isdigit(brain.strin[brain.loc]) && !brain.bperiod)
 			brain.iminchar = brain.iminchar * 10 + (brain.strin[brain.loc] - 48);
 		else if (ft_isdigit(brain.strin[brain.loc]) && brain.bperiod)
 			brain.imaxchar = brain.imaxchar * 10 + (brain.strin[brain.loc] - 48);
 		brain.loc++;
 	}
-	printbrain(brain);
+//	printbrain(brain);
 	brain = typesorter(brain);
 	return (brain);
 }
