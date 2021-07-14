@@ -45,8 +45,10 @@ void	printbrain(t_brain brain)
 		write(1, &brain.strin[a], 1);
 		a++;
 	}
+	write(1, "\ntotalen: ", 10);
+	h = brain.totalen + 40;
+	write(1, &h, 1);
 	write(1, "\n\n", 2);
-	
 }
 
 
@@ -96,8 +98,10 @@ int	ft_printf(const char *masstr, ...)
 	{
 		brain = brainwash(brain);
 		brain = printez(brain);
+//		printbrain(brain);
 		if (!brain.bemergencybreak)
 			brain = paramdetector(brain);
+//		printbrain(brain);
 	}
 	va_end(arguments);
 	return (brain.totalen);
@@ -106,6 +110,10 @@ int	ft_printf(const char *masstr, ...)
 
 int main()
 {
-	int a = ft_printf("Hello World %-30s Hello World", "Goodbye");
+	write(1, "Yours: ", 7);
+	int a = ft_printf("Hello World %s Hello World", "Goodbye");
+	write(1, "\nOrgnl: ", 8);
+	int b = printf("Hello World %s Hello World", "Goodbye");
 	printf("\n\nft_printf returned: %d", a);
+	printf("\n   printf returned: %d", b);
 }

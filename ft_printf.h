@@ -36,6 +36,7 @@ void	spacer(int a);
 int		ft_isdigit(char c);
 t_brain	paramdetector(t_brain brain);
 t_brain	ft_s(t_brain brain);
+t_brain	ft_c(t_brain brain);
 char	*ft_strdup(const char *s1);
 void	printbrain(t_brain brain);
 
