@@ -113,20 +113,14 @@ int main()
 	int z;
 
 	z = 0;
-//	write(1, "\nYours: ", 8);
-//	int a = ft_printf("Hello World %s Hello World", "Goodbye");
+	write(1, "\nYours: ", 8);
+	int a = ft_printf("Hello World %d Hello World", 30);
 	write(1, "\nOrgnl: ", 8);
-	int b = printf("Hello World %p Hello World", &z);
-//	printf("\n\nft_printf returned: %d", a);
+	int b = printf("Hello World %10.1d Hello World", 30);
+	printf("\n\nft_printf returned: %d", a);
 	printf("\n   printf returned: %d", b);
-/*	if (a == b)
+	if (a == b)
 		printf("\n\nBoth printf's RETURNED the same value (check printed values)\n\n");
 	else
-		printf("\n\nSomething went wrong :(\n\n");*/
-
-	char *f;
-	f = malloc(sizeof(char) * 15);
-	f[0] = &z[0]; 
-	printf(">>%s<<", f);
-	free (f);
+		printf("\n\nSomething went wrong :(\n\n");
 }
