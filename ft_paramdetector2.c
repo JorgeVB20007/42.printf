@@ -18,13 +18,15 @@ t_brain	typesorter(t_brain brain)
 		brain = ft_c(brain);
 	if (brain.ctype == 'd' || brain.ctype == 'i')
 		brain = ft_id(brain);
-/*	if (brain.ctype == 'u')
-		ft_u(void);
-	if (brain.ctype == 'x' || brain.ctype == 'X')
-		ft_x(void);
-	if (brain.ctype == '%')
-		ft_percent(void);*/
-		return (brain);
+//	if (brain.ctype == 'u')
+//		ft_u(void);
+	if (brain.ctype == 'p')
+		brain = ft_p(brain);
+//	if (brain.ctype == 'x' || brain.ctype == 'X')
+//		ft_x(void);
+//	if (brain.ctype == '%')
+//		ft_percent(void);*/
+	return (brain);
 }
 
 t_brain	paramdetector(t_brain brain)

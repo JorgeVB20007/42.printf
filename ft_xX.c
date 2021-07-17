@@ -3,27 +3,51 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void turn_to_hex(void)
+char	*add_new_hex_char(char *oldstr, int new, int caps)
 {
-	char	hextorage[8];
+	char	*newstr;
 	int		a;
-	int		temp;
-	char	tempchar;
+
 
 	a = 0;
-	temp = va_arg(arguments, int);
-	while (temp != 0)
+	newstr = malloc(ft_strlen(oldstr + 2));
+	if (new < 10)
+		newstr[a] = new + 48;
+	else if (!caps)
+		newstr[a] = new + 87;
+	else
+		newstr[a] = new + 55;
+	a++;
+	while (oldstr[a - 1])
 	{
-		if (temp % 16 > 9)
-		{
-			if (ctype == 'x')
-				tempchar = ((temp % 16) + 87);
-			else
-				tempchar = ((temp % 16) + 55);
-		}
-		else
-			tempchar = temp % 16;
-		hextorage[a] = tempchar;
+		newstr[a] = oldstr[a - 1];
+		a++;
 	}
-	write(1, &hextorage, a);
+	newstr[a] = 0;
+	free(oldstr);
+	return (newstr);
 }
+
+char	*turn_to_hex(unsigned long long int thenum, int caps)
+{
+	int		remainders;
+	char	*thestr;
+
+	thestr = malloc(1);
+	while (thenum > 0)
+	{
+		remainders = thenum % 16;
+		thestr = add_new_hex_char(thestr, remainders, caps);
+		thenum = thenum / 16;
+	}
+	return (thestr);
+}
+
+
+/************************************************
+*												*
+*	INVESTIGATE WHY printf("%p") ABBREVIATES	*
+*	  HEX CODE (ffffffff... --> 7ff...) AND 	*
+*	           HOW TO WORK WITH IT				*
+*												*
+*************************************************/

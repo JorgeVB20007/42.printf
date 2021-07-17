@@ -11,7 +11,7 @@ char	*addazero(char *str)
 	newstr = malloc(ft_strlen(str) + 2);
 	a = 0;
 	newstr[0] = '0';
-	while(str[a])
+	while (str[a])
 	{
 		newstr[a + 1] = str[a];
 		a++;
@@ -20,7 +20,6 @@ char	*addazero(char *str)
 	free(str);
 	return (newstr);
 }
-
 
 t_brain	int_string_printer(t_brain brain, char *string)
 {
@@ -48,21 +47,32 @@ t_brain	int_string_printer(t_brain brain, char *string)
 	return (brain);
 }
 
-
-
-
 t_brain	ft_id(t_brain brain)
 {
-	int		thenum;
-	char	*thestr;
+	double		thenum;
+	double		thenewnum;
+	char		*thestr;
 
-	thenum = va_arg (*brain.args, int);
-	thestr = ft_itoa(thenum);
+	thenum = (double)va_arg (*brain.args, int);
+	thenewnum = thenum;
+	if (thenewnum < 0)
+		thenewnum = thenewnum * -1;
+	thestr = ft_itoa(thenewnum);
 	while (ft_strlen(thestr) < brain.imaxchar)
 		thestr = addazero(thestr);
-/*	printf("\n%s\n", thestr);
-	write(1, thestr, ft_strlen(thestr));*/
+	if (thenum < 0)
+	{
+		thestr = addazero(thestr);
+		thestr[0] = '-';
+	}
+	else if (brain.bspace || brain.bplus)
+	{
+		thestr = addazero(thestr);
+		if (brain.bspace)
+			thestr[0] = ' ';
+		else
+			thestr[0] = '+';
+	}
 	brain = int_string_printer(brain, thestr);
-//	write(1, &thestr, 9);
 	return (brain);
 }

@@ -1,5 +1,5 @@
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <stddef.h>
@@ -38,8 +38,11 @@ t_brain	paramdetector(t_brain brain);
 t_brain	ft_s(t_brain brain);
 t_brain	ft_c(t_brain brain);
 t_brain	ft_id(t_brain brain);
+t_brain	ft_p(t_brain brain);
 char	*ft_strdup(const char *s1);
 void	printbrain(t_brain brain);
 t_brain	spaceandcount(t_brain brain);
+char	*turn_to_hex(unsigned long long int thenum, int caps);
+t_brain	int_string_printer(t_brain brain, char *string);
 
 #endif
