@@ -26,8 +26,6 @@ t_brain	ft_percent(t_brain brain)
 	thestr = malloc(2);
 	thestr[0] = '%';
 	thestr[1] = 0;
-	while (ft_strlen(thestr) < brain.imaxchar)
-		thestr = addazero(thestr);
 	brain = int_string_printer(brain, thestr);
 	return (brain);
 }

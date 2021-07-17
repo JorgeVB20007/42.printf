@@ -5,7 +5,7 @@
 
 t_brain	spaceandcount(t_brain brain)
 {
-	if (brain.ctype == 'd' || brain.ctype == 'i' || brain.ctype == 'u')
+	if (brain.ctype == 'd' || brain.ctype == 'i' || brain.ctype == 'u' || brain.ctype == '%')
 	{
 		if (brain.bzero && !brain.bperiod)
 			write(1, "0", 1);

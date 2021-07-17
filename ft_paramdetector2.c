@@ -34,9 +34,9 @@ t_brain	paramdetector(t_brain brain)
 	int		completed;
 
 	completed = 0;
+	brain.loc++;
 	while (!completed)
 	{
-		brain.loc++;
 		if (ft_isalpha(brain.strin[brain.loc]) || brain.strin[brain.loc] == '%')
 		{
 			completed++;
@@ -58,6 +58,7 @@ t_brain	paramdetector(t_brain brain)
 			brain.iminchar = brain.iminchar * 10 + (brain.strin[brain.loc] - 48);
 		else if (ft_isdigit(brain.strin[brain.loc]) && brain.bperiod)
 			brain.imaxchar = brain.imaxchar * 10 + (brain.strin[brain.loc] - 48);
+		brain.loc++;
 	}
 //	printbrain(brain);
 	brain = typesorter(brain);
