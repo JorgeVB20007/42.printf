@@ -16,9 +16,9 @@ t_brain	typesorter(t_brain brain)
 		brain = ft_s(brain);
 	if (brain.ctype == 'c')
 		brain = ft_c(brain);
-/*	if (brain.ctype == 'd' || brain.ctype == 'i')
-		ft_id(void);
-	if (brain.ctype == 'u')
+	if (brain.ctype == 'd' || brain.ctype == 'i')
+		brain = ft_id(brain);
+/*	if (brain.ctype == 'u')
 		ft_u(void);
 	if (brain.ctype == 'x' || brain.ctype == 'X')
 		ft_x(void);

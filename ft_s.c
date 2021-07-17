@@ -35,8 +35,7 @@ t_brain	ft_s(t_brain brain)
 {
 	int		dif;
 	char	*string = NULL;
-//	printf(">>%d<<", brain.totalen);
-//	write(1, "It's a string!", 14);
+
 	string = stringtrimmer(brain, va_arg (*brain.args, char *));
 	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
 	{
@@ -44,7 +43,6 @@ t_brain	ft_s(t_brain brain)
 		while (dif-- - ft_strlen(string))
 			brain = spaceandcount(brain);
 	}
-
 	dif = 0;
 	while (string[dif])
 	{
@@ -52,40 +50,11 @@ t_brain	ft_s(t_brain brain)
 		brain.totalen++;
 		dif++;
 	}
-/*	if ((ft_strlen(string) > brain.imaxchar && brain.imaxchar) || brain.imaxcharzero)
-	{
-		dif = 0;
-		if (!brain.bneg && brain.imaxchar < brain.iminchar)
-			while (ft_strlen(string) - dif++ > brain.imaxchar)
-				spaceandcount(brain);
-		dif = 0;
-		while (dif < brain.imaxchar)
-		{
-			write(1, &string[dif], 1);
-			brain.totalen++;
-			dif++;
-		}
-		dif = 0;
-		if (brain.bneg && brain.imaxchar < brain.iminchar)
-			while (ft_strlen(string) - dif++ > brain.imaxchar)
-				spaceandcount(brain);
-	}*/
 	if (ft_strlen(string) < brain.iminchar && brain.bneg)
 	{
 		dif = brain.iminchar;
 		while (dif-- - ft_strlen(string))
 			brain = spaceandcount(brain);
 	}
-/*	dif = 0;
-	if (ft_strlen(string) < brain.imaxchar && ft_strlen(string) > brain.iminchar)
-	{
-		while (string[dif])
-		{
-			write(1, &string[dif], 1);
-			brain.totalen++;
-			dif++;
-		}
-	}*/
-//	printf(">>.%d.<<", brain.totalen);
 	return (brain);
 }

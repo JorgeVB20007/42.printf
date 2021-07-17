@@ -114,9 +114,9 @@ int main()
 
 	z = 0;
 	write(1, "\nYours: ", 8);
-	int a = ft_printf("Hello World %d Hello World", 30);
+	int a = ft_printf("Hello World %20.9d Hello World", 123);
 	write(1, "\nOrgnl: ", 8);
-	int b = printf("Hello World %10.1d Hello World", 30);
+	int b = printf("Hello World %20.9d Hello World", 123);
 	printf("\n\nft_printf returned: %d", a);
 	printf("\n   printf returned: %d", b);
 	if (a == b)
