@@ -8,7 +8,6 @@ char	*add_new_hex_char(char *oldstr, int new, int caps)
 	char	*newstr;
 	int		a;
 
-
 	a = 0;
 	newstr = malloc(ft_strlen(oldstr + 2));
 	if (new < 10)
@@ -28,12 +27,13 @@ char	*add_new_hex_char(char *oldstr, int new, int caps)
 	return (newstr);
 }
 
-char	*turn_to_hex(unsigned long long int thenum, int caps)
+char	*turn_to_hex(unsigned long long thenum, int caps)
 {
 	int		remainders;
 	char	*thestr;
 
 	thestr = malloc(1);
+	thestr[0] = 0;
 	while (thenum > 0)
 	{
 		remainders = thenum % 16;
@@ -43,11 +43,31 @@ char	*turn_to_hex(unsigned long long int thenum, int caps)
 	return (thestr);
 }
 
+t_brain	ft_x(t_brain brain)
+{
+	unsigned long long int	b;
+	char					*str;
 
-/************************************************
-*												*
-*	INVESTIGATE WHY printf("%p") ABBREVIATES	*
-*	  HEX CODE (ffffffff... --> 7ff...) AND 	*
-*	           HOW TO WORK WITH IT				*
-*												*
-*************************************************/
+	b = va_arg(*brain.args, unsigned int);
+	if (!b)
+		str = ft_strdup("0");
+	else if (brain.ctype == 'x')
+		str = turn_to_hex(b, 0);
+	else
+		str = turn_to_hex(b, 1);
+
+	if (brain.bhash && b)
+	{
+		str = addazero(str);
+		if (brain.ctype == 'x')
+			str[0] = 'x';
+		else if (brain.ctype == 'X')
+			str[0] = 'X';
+		str = addazero(str);
+	}
+	while (ft_strlen(str) < brain.imaxchar)
+		str = addazero(str);
+	brain = int_string_printer(brain, str);
+	/*free(str);*/
+	return (brain);
+}

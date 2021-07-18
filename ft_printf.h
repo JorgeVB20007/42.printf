@@ -8,7 +8,7 @@
 
 typedef struct s_brain
 {
-	const char	*strin;
+	char		*strin;
 	int			loc;
 	char		ctype;
 	int			bzero;
@@ -28,6 +28,7 @@ typedef struct s_brain
 
 int		ft_printf(const char *masstr, ...);
 char	*ft_itoa(int n);
+char	*ft_utoa(unsigned int n);
 char	*turn_to_exponential(int num);
 int		ft_isalpha(char c);
 int		ft_strlen(char *s);
@@ -40,6 +41,7 @@ t_brain	ft_c(t_brain brain);
 t_brain	ft_id(t_brain brain);
 t_brain	ft_p(t_brain brain);
 t_brain	ft_u(t_brain brain);
+t_brain	ft_x(t_brain brain);
 t_brain	ft_percent(t_brain brain);
 char	*ft_strdup(const char *s1);
 void	printbrain(t_brain brain);

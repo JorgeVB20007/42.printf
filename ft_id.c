@@ -7,11 +7,13 @@ char	*addazero(char *str)
 {
 	char	*newstr;
 	int		a;
+	int		b;
 
 	newstr = malloc(ft_strlen(str) + 2);
+	b = ft_strlen(str);
 	a = 0;
 	newstr[0] = '0';
-	while (str[a])
+	while (a < b)
 	{
 		newstr[a + 1] = str[a];
 		a++;
@@ -25,6 +27,8 @@ t_brain	int_string_printer(t_brain brain, char *string)
 {
 	int		dif;
 
+	if (string[0] == '-' || string[0] == '+' || string[0] == ' ' )
+		write(1, &string[0], 1);
 	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
 	{
 		dif = brain.iminchar;
@@ -34,7 +38,8 @@ t_brain	int_string_printer(t_brain brain, char *string)
 	dif = 0;
 	while (string[dif])
 	{
-		write(1, &string[dif], 1);
+		if (string[dif] != '-' && string[dif] != '+' && string[dif] != ' ')
+			write(1, &string[dif], 1);
 		brain.totalen++;
 		dif++;
 	}
@@ -44,6 +49,7 @@ t_brain	int_string_printer(t_brain brain, char *string)
 		while (dif-- - ft_strlen(string))
 			brain = spaceandcount(brain);
 	}
+	free(string);
 	return (brain);
 }
 
@@ -74,5 +80,6 @@ t_brain	ft_id(t_brain brain)
 			thestr[0] = '+';
 	}
 	brain = int_string_printer(brain, thestr);
+	/*free(thestr);*/
 	return (brain);
 }

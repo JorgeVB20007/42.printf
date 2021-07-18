@@ -98,29 +98,34 @@ int	ft_printf(const char *masstr, ...)
 	{
 		brain = brainwash(brain);
 		brain = printez(brain);
-//		printbrain(brain);
 		if (!brain.bemergencybreak)
 			brain = paramdetector(brain);
-//		printbrain(brain);
 	}
+	free(brain.strin);
 	va_end(arguments);
 	return (brain.totalen);
 }
 
-
+/*
+#include <limits.h>
 int main()
 {
 	int z;
+	char m;
 
+	m = '3';
 	z = 0;
 	write(1, "\nYours: ", 8);
-	int a = ft_printf("Hello World %09% Hello World");
-	write(1, "\nOrgnl: ", 8);
-	int b = printf("Hello World %09% Hello World");
+	int a = ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
+	write(1, "\n\nOrgnl: ", 9);
+	int b = printf(" %.s ", "qwertyuiop");
 	printf("\n\nft_printf returned: %d", a);
 	printf("\n   printf returned: %d", b);
 	if (a == b)
 		printf("\n\nBoth printf's RETURNED the same value (check printed values)\n\n");
 	else
 		printf("\n\nSomething went wrong :(\n\n");
-}
+}*/
+
+// gcc -Wall -Werror -Wextra ft_printf.c ft_s.c ft_c.c ft_id.c ft_x.c ft_p.c ft_u.c ft_paramdetector2.c ft_printf.h ft_itoa.c ft_libft.c && ./a.out && rm a.out
+// gcc ft_printf.c ft_s.c ft_c.c ft_id.c ft_x.c ft_p.c ft_u.c ft_paramdetector2.c ft_printf.h ft_itoa.c ft_libft.c && ./a.out && rm a.out

@@ -22,8 +22,8 @@ t_brain	typesorter(t_brain brain)
 		brain = ft_u(brain);
 	if (brain.ctype == 'p')
 		brain = ft_p(brain);
-//	if (brain.ctype == 'x' || brain.ctype == 'X')
-//		ft_x(void);
+	if (brain.ctype == 'x' || brain.ctype == 'X')
+		brain = ft_x(brain);
 	if (brain.ctype == '%')
 		brain = ft_percent(brain);
 	return (brain);

@@ -8,20 +8,22 @@ t_brain	ft_p(t_brain brain)
 {
 	unsigned long long int	b;
 	char					*str;
+	int						h;
 
-	b = (unsigned long long int)va_arg(*brain.args, int);
-
-	str = turn_to_hex(b, 0);
-	brain = int_string_printer(brain, "0x");
+	b = va_arg(*brain.args, unsigned long long);
+	if (b)
+		str = turn_to_hex(b, 0);
+	else
+		str = ft_strdup("0");
+	h = 0;
+	str = addazero(str);
+	h = 0;
+	str[0] = 'x';
+	h = 0;
+	str = addazero(str);
+	h = 0;
 	brain = int_string_printer(brain, str);
 	return (brain);
 }
 
 
-/************************************************
-*												*
-*	INVESTIGATE WHY printf("%p") ABBREVIATES	*
-*	 HEX CODE (ffffffff... --> 7ffe...) AND 	*
-*			  HOW TO WORK WITH IT 				*
-*												*
-*************************************************/
