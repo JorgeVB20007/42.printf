@@ -40,15 +40,6 @@ int	ft_intlen(int a)
 	return (n);
 }
 
-void	spacer(int a)
-{
-	while (a > 0)
-	{
-		write(1, " ", 1);
-		a--;
-	}
-}
-
 int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')

@@ -12,12 +12,11 @@ t_brain	ft_u(t_brain brain)
 	thenum = va_arg (*brain.args, unsigned int);
 	thenewnum = thenum;
 	thestr = ft_utoa(thenewnum);
-	while (ft_strlen(thestr) < brain.imaxchar)
+	while (ft_strlen(thestr) < brain.imxchr)
 		thestr = addazero(thestr);
 	brain = int_string_printer(brain, thestr);
 	return (brain);
 }
-
 
 t_brain	ft_percent(t_brain brain)
 {
@@ -27,6 +26,5 @@ t_brain	ft_percent(t_brain brain)
 	thestr[0] = '%';
 	thestr[1] = 0;
 	brain = int_string_printer(brain, thestr);
-	/*free(thestr);*/
 	return (brain);
 }

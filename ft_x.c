@@ -55,7 +55,6 @@ t_brain	ft_x(t_brain brain)
 		str = turn_to_hex(b, 0);
 	else
 		str = turn_to_hex(b, 1);
-
 	if (brain.bhash && b)
 	{
 		str = addazero(str);
@@ -65,9 +64,8 @@ t_brain	ft_x(t_brain brain)
 			str[0] = 'X';
 		str = addazero(str);
 	}
-	while (ft_strlen(str) < brain.imaxchar)
+	while (ft_strlen(str) < brain.imxchr)
 		str = addazero(str);
 	brain = int_string_printer(brain, str);
-	/*free(str);*/
 	return (brain);
 }

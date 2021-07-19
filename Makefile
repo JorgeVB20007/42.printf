@@ -5,7 +5,7 @@ SRCS	=	ft_printf.c \
 			ft_id.c \
 			ft_x.c \
 			ft_u.c \
-			ft_paramdetector2.c \
+			ft_paramdetector.c \
 			ft_libft.c \
 			ft_atoi.c \
 			ft_itoa.c \

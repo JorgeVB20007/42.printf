@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
 t_brain	ft_p(t_brain brain)
 {
 	unsigned long long int	b;
@@ -25,5 +24,3 @@ t_brain	ft_p(t_brain brain)
 	brain = int_string_printer(brain, str);
 	return (brain);
 }
-
-

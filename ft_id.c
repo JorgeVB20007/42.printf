@@ -23,18 +23,10 @@ char	*addazero(char *str)
 	return (newstr);
 }
 
-t_brain	int_string_printer(t_brain brain, char *string)
+t_brain	writing_the_num(t_brain brain, char *string)
 {
-	int		dif;
+	int	dif;
 
-	if (string[0] == '-' || string[0] == '+' || string[0] == ' ' )
-		write(1, &string[0], 1);
-	if (ft_strlen(string) < brain.iminchar && !brain.bneg)
-	{
-		dif = brain.iminchar;
-		while (dif-- - ft_strlen(string))
-			brain = spaceandcount(brain);
-	}
 	dif = 0;
 	while (string[dif])
 	{
@@ -43,9 +35,25 @@ t_brain	int_string_printer(t_brain brain, char *string)
 		brain.totalen++;
 		dif++;
 	}
-	if (ft_strlen(string) < brain.iminchar && brain.bneg)
+	return (brain);
+}
+
+t_brain	int_string_printer(t_brain brain, char *string)
+{
+	int		dif;
+
+	if (string[0] == '-' || string[0] == '+' || string[0] == ' ' )
+		write(1, &string[0], 1);
+	if (ft_strlen(string) < brain.imnchr && !brain.bneg)
 	{
-		dif = brain.iminchar;
+		dif = brain.imnchr;
+		while (dif-- - ft_strlen(string))
+			brain = spaceandcount(brain);
+	}
+	brain = writing_the_num(brain, string);
+	if (ft_strlen(string) < brain.imnchr && brain.bneg)
+	{
+		dif = brain.imnchr;
 		while (dif-- - ft_strlen(string))
 			brain = spaceandcount(brain);
 	}
@@ -64,22 +72,18 @@ t_brain	ft_id(t_brain brain)
 	if (thenewnum < 0)
 		thenewnum = thenewnum * -1;
 	thestr = ft_itoa(thenewnum);
-	while (ft_strlen(thestr) < brain.imaxchar)
+	while (ft_strlen(thestr) < brain.imxchr)
 		thestr = addazero(thestr);
-	if (thenum < 0)
+	if (thenum < 0 || brain.bspace || brain.bplus)
 	{
 		thestr = addazero(thestr);
-		thestr[0] = '-';
-	}
-	else if (brain.bspace || brain.bplus)
-	{
-		thestr = addazero(thestr);
-		if (brain.bspace)
+		if (thenum < 0)
+			thestr[0] = '-';
+		else if (brain.bspace)
 			thestr[0] = ' ';
 		else
 			thestr[0] = '+';
 	}
 	brain = int_string_printer(brain, thestr);
-	/*free(thestr);*/
 	return (brain);
 }

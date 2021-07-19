@@ -8,10 +8,9 @@ t_brain	ft_c(t_brain brain)
 	int		dif;
 	char	cara;
 
-//	write(1, "It's a char!", 12);
 	cara = va_arg (*brain.args, int);
 	dif = 0;
-	while (dif + 1 < brain.iminchar && !brain.bneg)
+	while (dif + 1 < brain.imnchr && !brain.bneg)
 	{
 		write(1, " ", 1);
 		brain.totalen++;
@@ -19,7 +18,7 @@ t_brain	ft_c(t_brain brain)
 	}
 	write(1, &cara, 1);
 	brain.totalen++;
-	while (dif + 1 < brain.iminchar && brain.bneg)
+	while (dif + 1 < brain.imnchr && brain.bneg)
 	{
 		write(1, " ", 1);
 		brain.totalen++;
