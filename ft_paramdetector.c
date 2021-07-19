@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-t_brain	typesorter(t_brain brain)
+static t_brain	typesorter(t_brain brain)
 {
 	if (brain.ctype == 's')
 		brain = ft_s(brain);

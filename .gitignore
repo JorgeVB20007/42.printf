@@ -1,8 +1,0 @@
-PLAYGROUND.c
-test.c
-*.o
-*.gch
-*.dSYM
-*.a
-.DS_Store
-printfTester/

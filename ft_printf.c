@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-t_brain	brainwash(t_brain brain)
+static t_brain	brainwash(t_brain brain)
 {
 	brain.ctype = '-';
 	brain.bzero = 0;
@@ -19,7 +19,7 @@ t_brain	brainwash(t_brain brain)
 	return (brain);
 }
 
-t_brain	printez(t_brain brain)
+static t_brain	printez(t_brain brain)
 {
 	while (brain.strin[brain.loc] && brain.strin[brain.loc] != '%')
 	{

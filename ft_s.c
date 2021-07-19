@@ -34,7 +34,7 @@ t_brain	spaceandcount(t_brain brain)
 	return (brain);
 }
 
-char	*stringtrimmer(t_brain brain, char *inistr)
+static char	*stringtrimmer(t_brain brain, char *inistr)
 {
 	char	*newstring;
 	int		a;

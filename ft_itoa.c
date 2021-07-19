@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jvacaris <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 19:15:22 by jvacaris          #+#    #+#             */
-/*   Updated: 2021/06/04 19:15:26 by jvacaris         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 #include <stdlib.h>
 
-char	*minnumber(int n)
+static char	*minnumber(int n)
 {
 	char	*a;
 
@@ -41,7 +29,7 @@ char	*minnumber(int n)
 	return (a);
 }
 
-int	checklong(int n)
+static int	checklong(int n)
 {
 	int	p;
 
@@ -83,7 +71,7 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-int	checkulong(unsigned int n)
+static int	checkulong(unsigned int n)
 {
 	int	p;
 

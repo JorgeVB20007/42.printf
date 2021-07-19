@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-char	*add_new_hex_char(char *oldstr, int new, int caps)
+static char	*add_new_hex_char(char *oldstr, int new, int caps)
 {
 	char	*newstr;
 	int		a;

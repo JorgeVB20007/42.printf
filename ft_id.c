@@ -23,7 +23,7 @@ char	*addazero(char *str)
 	return (newstr);
 }
 
-t_brain	writing_the_num(t_brain brain, char *string)
+static t_brain	writing_the_num(t_brain brain, char *string)
 {
 	int	dif;
 
