@@ -11,12 +11,8 @@ SRCS	=	ft_printf.c \
 			ft_itoa.c \
 
 
-
-
-SRCSB	=	test.c \
-
 OBJS = ${SRCS:.c=.o}
-OBJSB = ${SRCSB:.c=.o}
+OBJSB = ${SRCS:.c=.o}
 NAME = libftprintf.a
 CC = gcc
 RM = rm -f
@@ -27,7 +23,7 @@ ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS}
 			ranlib ${NAME}
 bonus:		${OBJS} ${OBJSB}
-			ar rc ${NAME} ${OBJS} ${OBJSB}
+			ar rc ${NAME} ${OBJS}
 			ranlib ${NAME}
 clean:
 	@${RM} ${OBJS} ${OBJSB}
