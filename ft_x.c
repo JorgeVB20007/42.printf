@@ -21,7 +21,7 @@ static char	*add_new_hex_char(char *oldstr, int new, int caps)
 	int		a;
 
 	a = 0;
-	newstr = malloc(ft_strlen(oldstr + 2));
+	newstr = malloc(ft_strlen(oldstr) + 2);
 	if (new < 10)
 		newstr[a] = new + 48;
 	else if (!caps)
